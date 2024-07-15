@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,30 +7,30 @@
 
   <link href="{{ mix('css/app.css') }}" rel="stylesheet">
 
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.pjax/2.0.1/jquery.pjax.min.js"></script>
 
-    @livewireStyles
-
+  @livewireStyles
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
 
   <!-- Navbar -->
-    <x-topnav />
+  <x-topnav />
   <!-- /.navbar -->
 
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="index3.html" class="brand-link">
-      <span class="brand-text font-weight-bold" style="font-size: 1.3em;"><b>Book Store</b></span>
-    </a>
-
+    
     <!-- Sidebar -->
     <div class="sidebar">
       <!-- Sidebar user panel (optional) -->
-      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+      <div class="d-flex justify-content-center p-4">
         <div class="image">
-              <img src="{{asset('images/user1-128x128.jpg')}}" alt="User Avatar" class="img-size-50 mr-3 img-circle">
+          <a href="{{ route('home') }}">
+            <img src="{{ asset('images/books.jpg') }}" alt="User Avatar" class="img-fluid img-circle" style="width: 80px; height: 80px;">
+          </a>
         </div>
         <div class="info">
           {{-- {{ userFullName() }} --}}
@@ -39,7 +38,7 @@
         </div>
       </div>
 
-
+      <hr>
 
       <!-- Sidebar Menu -->
       <x-menu />
@@ -48,16 +47,15 @@
     <!-- /.sidebar -->
   </aside>
 
-
-
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
-
 
     <!-- Main content -->
     <div class="content">
       <div class="container-fluid">
-        @yield("contenu")
+        <div id="content">
+          @yield('contenu')
+        </div>
         <!-- /.row -->
       </div><!-- /.container-fluid -->
     </div>
@@ -72,17 +70,27 @@
   <!-- Main Footer -->
   <footer class="main-footer">
     <!-- To the right -->
-   
     <!-- Default to the left -->
     <strong>Copyright &copy; 2024 <a href="https://adminlte.io">Boukhezzar Fahim</a>.</strong> All rights reserved.
   </footer>
 </div>
 <!-- ./wrapper -->
 
-<!-- REQUIRED SCRIPTS -->
 <script src="{{ mix('js/app.js') }}"></script>
+<script>
+  $(document).pjax('a[data-pjax]', '#content', {
+    fragment: '#content',
+    timeout: 1000
+  });
 
+  $(document).on('pjax:complete', function() {
+    console.log('PJAX: Content updated');
+    // Réinitialiser Livewire après PJAX
+    if (typeof Livewire !== 'undefined') {
+      Livewire.rescan();
+    }
+  });
+</script>
 @livewireScripts
-
 </body>
 </html>

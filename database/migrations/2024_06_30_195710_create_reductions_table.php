@@ -15,7 +15,7 @@ class CreateReductionsTable extends Migration
     {
         Schema::create('reductions', function (Blueprint $table) {
             $table->id();
-            $table->string('reduction');
+            $table->decimal('reduction', 5, 2); // Ajustez ce champ selon vos besoins
             $table->timestamps();
         });
     }

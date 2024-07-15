@@ -8,7 +8,7 @@ use App\Http\Livewire\CategorieComp;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\GestionCommande;
-
+use App\Http\Livewire\ReductionComp;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,6 +38,8 @@ Route::group([
 
         Route::get("/livre", Livres::class)->name("article.index");
         Route::get("/catégorie", CategorieComp::class)->name("categorie.index");
+        Route::get("/reduction", ReductionComp::class)->name("reduction.index");
+
 
     });
 

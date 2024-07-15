@@ -5,7 +5,7 @@
                 <h3 class="card-title flex-grow-1"><i class="fa fa-list fa-2x"></i> Liste des livres</h3>
                 <div class="card-tools d-flex align-items-center">
                     <a class="btn btn-light text-primary mr-4" wire:click.prevent="goToAddUser()">
-                        <i class="fas fa-user-plus"></i> Nouveau livre
+                        <i class="fas fa-plus-circle"></i> Nouveau livre
                     </a>
                     <div class="input-group input-group-md" style="width: 250px;">
                         <input type="text" name="table_search" wire:model.debounce.250ms="search" class="form-control" placeholder="Recherche">
@@ -49,14 +49,15 @@
                     <table class="table table-hover">
                         <thead class="thead-light">
                             <tr>
-                                <th>Image</th>
-                                <th>Livres et auteurs</th>
-                                <th class="text-center">Catégorie</th>
-                                <th class="text-center">État</th>
-                                <th class="text-center">Ajouté</th>
-                                <th class="text-center">Action</th>
+                                <th><i class="fas fa-image"></i> Image</th>
+                                <th><i class="fas fa-book"></i> Livres et auteurs</th>
+                                <th class="text-center"><i class="fas fa-tags"></i> Catégorie</th>
+                                <th class="text-center"><i class="fas fa-info-circle"></i> État</th>
+                                <th class="text-center"><i class="fas fa-calendar-alt"></i> Ajouté</th>
+                                <th class="text-center"><i class="fas fa-cogs"></i> Action</th>
                             </tr>
                         </thead>
+                        
                         <tbody>
                             @forelse ($livres as $livre)
                                 <tr>

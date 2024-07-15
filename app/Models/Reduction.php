@@ -13,7 +13,7 @@ class Reduction extends Model
 
     protected $fillable = [
 
-        'porcentage',
+        'reduction',
         
     ];
 
