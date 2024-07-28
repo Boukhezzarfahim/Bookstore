@@ -23,7 +23,7 @@ class ReductionComp extends Component
 
         $reductionQuery = Reduction::query();
 
-        return view('livewire.reductions.index', [
+        return view('livewire.admin.reductions.index', [
             "reductions" => $reductionQuery->latest()->paginate(5)
         ])
         ->extends("layouts.master")

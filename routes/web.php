@@ -1,14 +1,15 @@
 <?php
 
 use App\Http\Livewire\Livres;
+use App\Http\Controllers\boutique;
 use App\Http\Livewire\AuteursComp;
 use App\Http\Livewire\ContactComp;
 use App\Http\Livewire\EditionComp;
 use App\Http\Livewire\CategorieComp;
+use App\Http\Livewire\ReductionComp;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\GestionCommande;
-use App\Http\Livewire\ReductionComp;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,10 +22,19 @@ use App\Http\Livewire\ReductionComp;
 |
 */
 
-Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard');
+
+Route::get('/', [boutique::class, 'index'])->name('homeBooks');
+Route::get('/livre/{id}', [boutique::class, 'bookDetail'])->name('client.book-detail');
+Route::get('/service', [boutique::class, 'service'])->name('service');
+Route::get('/contact', [boutique::class, 'contact'])->name('client.contact');
+Route::post('/contact', [boutique::class, 'contactStore'])->name('contact.submit');
+
+Route::get('/book-filter', [boutique::class, 'bookFilter'])->name('client.book-filter');
 
 
-Auth::routes();
+Auth::routes(['register' => false]);
+
 
 Route::group([
     "middleware" => ["auth", "auth.admin"],

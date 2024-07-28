@@ -14,7 +14,6 @@ use Livewire\WithFileUploads;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Storage;
 
-
 class Livres extends Component
 {
     use WithPagination, WithFileUploads;
@@ -43,11 +42,9 @@ class Livres extends Component
         $this->editeurs = Editeur::orderBy('nom_edition', 'ASC')->get();
         $this->categories = Categorie::orderBy('nom', 'ASC')->get();
         $this->reductions = Reduction::orderBy('reduction', 'ASC')->get();
-
     }
 
-
-    protected function rules ()
+    protected function rules()
     {
         if ($this->currentPage == PAGEEDITFORM) {
             return [
@@ -57,7 +54,7 @@ class Livres extends Component
                 'editLivre.ISBN' => ['required', 'unique:livres,ISBN,' . $this->editLivre['id']],
                 'editLivre.edition_id' => 'required|exists:editeurs,id',
                 'editLivre.categorie_id' => 'required|exists:categories,id',
-                'editLivre.reduction_id' => 'required|exists:reductions,id',
+                'editLivre.reduction_id' => 'nullable|exists:reductions,id', // Nullable
                 'editLivre.genre' => 'required',
                 'editLivre.prix' => 'required|numeric',
                 'editLivre.ancien_prix' => 'nullable|numeric',
@@ -89,18 +86,16 @@ class Livres extends Component
             $livreQuery->where("disponibilite", $this->filtreDisponibilite);
         }
 
-        return view('livewire.livres.index', [
+        return view('livewire.admin.livres.index', [
             'livres' => $livreQuery->latest()->paginate(4),
         ])->extends("layouts.master")->section("contenu");
     }
-    
-    
-    
-    public function goToAddUser(){
+
+    public function goToAddUser()
+    {
         $this->currentPage = PAGECREATEFORM;
     }
 
-    
     public function goToEditLivre($id)
     {
         $livre = Livre::find($id);
@@ -110,15 +105,12 @@ class Livres extends Component
             $this->currentPage = PAGEEDITFORM;
         }
     }
-    
-    
 
     public function goToListLivre()
     {
         $this->currentPage = PAGELIST;
         $this->editLivre = [];
     }
-
     public function ajoutLivre()
     {
         $validateArr = [
@@ -127,7 +119,7 @@ class Livres extends Component
             "addLivre.auteur_id" => "required|exists:App\Models\Auteur,id",
             "addLivre.edition_id" => "required|exists:App\Models\Editeur,id",
             "addLivre.categorie_id" => "required|exists:App\Models\Categorie,id",
-            "addLivre.reduction_id" => "required|exists:App\Models\Reduction,id",
+            "addLivre.reduction_id" => "nullable|exists:App\Models\Reduction,id",
             "addLivre.genre" => "required",
             "addLivre.prix" => "required|numeric",
             "addLivre.ancien_prix" => "nullable|numeric",
@@ -137,20 +129,25 @@ class Livres extends Component
             "addLivre.description" => "required|string",
             "addPhoto" => "image|max:10240" // 10mb
         ];
-
+    
         $validatedData = $this->validate($validateArr);
-
+    
         // Par défaut notre image est une placeholder
         $imagePath = "images/imageplaceholder.png";
-
+    
         if ($this->addPhoto != null) {
             $path = $this->addPhoto->store('upload', 'public');
             $imagePath = "storage/" . $path;
-
-          //  $image = Image::make(public_path($imagePath))->fit(200, 200);
-            //$image->save();
+    
+            // $image = Image::make(public_path($imagePath))->fit(200, 200);
+            // $image->save();
         }
-
+    
+        // Assigner NULL à reduction_id si la valeur est vide
+        if (empty($validatedData['addLivre']['reduction_id'])) {
+            $validatedData['addLivre']['reduction_id'] = null;
+        }
+    
         Livre::create([
             "titre" => $validatedData["addLivre"]["titre"],
             "ISBN" => $validatedData["addLivre"]["ISBN"],
@@ -167,11 +164,11 @@ class Livres extends Component
             "reduction_id" => $validatedData["addLivre"]["reduction_id"],
             "image" => $imagePath
         ]);
-
-        $this->dispatchBrowserEvent("showSuccessMessage", ["message"=>"Livre ajouté avec succès!"]);
-    }
-     
     
+        $this->dispatchBrowserEvent("showSuccessMessage", ["message" => "Livre ajouté avec succès!"]);
+    }
+    
+
     public function updateLivre()
     {
         $validateArr = [
@@ -179,8 +176,8 @@ class Livres extends Component
             "editLivre.ISBN" => "string|max:50|min:3|required|unique:livres,ISBN," . $this->editLivre['id'],
             "editLivre.auteur_id" => "required|exists:App\Models\Auteur,id",
             "editLivre.edition_id" => "required|exists:App\Models\Editeur,id",
-            "editLivre.categorie_id" => "required|exists:App\Models\Categorie,id",
-            "editLivre.reduction_id" => "required|exists:App\Models\Reduction,id",
+            "editLivre.categorie_id" => "nullable|exists:App\Models\Categorie,id",
+            "editLivre.reduction_id" => "nullable|exists:App\Models\Reduction,id",
             "editLivre.genre" => "required",
             "editLivre.prix" => "required|numeric",
             "editLivre.ancien_prix" => "nullable|numeric",
@@ -204,55 +201,46 @@ class Livres extends Component
             // Enregistrer la nouvelle image
             $path = $this->image->store('upload', 'public');
             $validatedData['editLivre']['image'] = "storage/" . $path;
-    
-            // Supprimez ou commentez les lignes suivantes si vous ne souhaitez pas redimensionner l'image
-            // $image = Image::make(public_path($validatedData['editLivre']['image']))->fit(200, 200);
-            // $image->save();
         } else {
-            // Garder l'ancienne image
+            // Conserver l'ancienne image
             $validatedData['editLivre']['image'] = $livre->image;
+        }
+    
+        // Assigner NULL à reduction_id si la valeur est vide
+        if (empty($validatedData['editLivre']['reduction_id'])) {
+            $validatedData['editLivre']['reduction_id'] = null;
         }
     
         $livre->update($validatedData['editLivre']);
     
         $this->dispatchBrowserEvent("showSuccessMessage", ["message" => "Livre mis à jour avec succès!"]);
-        
     }
     
 
-    public function confirmDelete(Livre $livre)
+    public function confirmDelete($titre, $id)
     {
-        $this->dispatchBrowserEvent("showConfirmMessage", ["message"=> [
-            "text" => "Vous êtes sur le point de supprimer ". $livre->titre ." de la liste des livres. Voulez-vous continuer?",
-            "title" => "Êtes-vous sûr de continuer?",
-            "type" => "warning",
-            "data" => [
-                "livre_id" => $livre->id
+        $this->dispatchBrowserEvent("showConfirmMessage", [
+            "message" => [
+                "text" => "Vous êtes sur le point de supprimer $titre de la liste. Voulez-vous continuer?",
+                "title" => "Êtes-vous sûr de continuer?",
+                "type" => "warning",
+                "data" => [
+                    "livre_id" => $id
+                ]
             ]
-        ]]); 
+        ]);
     }
 
-
-
-    protected function cleanupOldUploads()
+    public function deleteLivre($id)
     {
-        $storage = Storage::disk("local");
+        $livre = Livre::find($id);
 
-        foreach ($storage->allFiles("livewire-tmp") as $pathFileName) {
-            if (!$storage->exists($pathFileName)) continue;
-
-            $fiveSecondsDelete = now()->subSeconds(5)->timestamp;
-
-            if ($fiveSecondsDelete > $storage->lastModified($pathFileName)) {
-                $storage->delete($pathFileName);
-            }
+        if ($livre->image && $livre->image !== "images/imageplaceholder.png") {
+            Storage::disk("public")->delete($livre->image);
         }
-    }
 
-    public function deleteLivre(Livre $livre)
-    {
         $livre->delete();
 
-        $this->dispatchBrowserEvent("showSuccessMessage", ["message"=>"Livre supprimé avec succès!"]);
+        $this->dispatchBrowserEvent("showSuccessMessage", ["message" => "Livre supprimé avec succès!"]);
     }
 }

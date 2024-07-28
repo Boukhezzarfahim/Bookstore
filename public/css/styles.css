@@ -1,0 +1,111 @@
+.card-header {
+    border-bottom: 1px solid #ddd;
+}
+.card-title {
+    font-size: 1rem;
+    font-weight: 450;
+}
+.btn-outline-primary {
+    border-color: #14be5b;
+    color: #24b388;
+    transition: color 0.2s, border-color 0.2s;
+}
+
+.table td, .table th {
+    vertical-align: middle;
+}
+.badge {
+    padding: 0.35rem 0.6rem;
+    font-size: 0.75rem;
+}
+.img-fluid {
+    max-height: 90px;
+    object-fit: cover;
+}
+.table-container {
+    border-radius: 0rem;
+    overflow: hidden;
+}
+.bg-turquoise {
+    background-color: #1abc9c;
+}
+.text-turquoise {
+    color: #1abc9c;
+}
+
+.fa-xs {
+    font-size: 0.75rem; /* Taille des icônes plus petite */
+}
+
+/* Aligne le texte verticalement et centre les éléments */
+thead th {
+    font-size: 0.875rem; /* Réduit la taille de la police */
+    vertical-align: middle; /* Aligne le texte verticalement */
+    padding: 0.5rem; /* Ajuste les marges pour un meilleur espacement */
+}
+
+/* Style des icônes pour une apparence plus fine */
+thead th i {
+    font-size: 0.875rem; /* Ajuste la taille des icônes */
+    margin-right: 0.5rem; /* Espace entre l'icône et le texte */
+}
+
+
+/* menu.blade.php */
+
+
+/* Styles pour le menu de navigation personnalisé */
+.custom-nav .custom-nav-link {
+    font-size: 1rem; /* Taille de police du texte dans les liens de navigation */
+    padding: 0.5rem 1rem; /* Espacement autour du texte */
+}
+
+/* Réduit la taille des icônes du menu */
+.custom-nav .custom-nav-icon {
+    font-size: 0.75rem; /* Taille des icônes plus petite */
+}
+
+/* Améliore la présentation du texte */
+.custom-nav .custom-nav-text {
+    margin: 0; /* Évite les marges supplémentaires autour du texte */
+    margin-left: 0.5rem; /* Espacement pour le texte par rapport aux icônes */
+}
+
+/* Ajuste la taille des flèches pour les sous-menus */
+.custom-nav .custom-nav-arrow {
+    font-size: 0.625rem; /* Taille des flèches plus petite */
+}
+
+/* Assurez-vous que les transitions sont fluides */
+.nav-link.custom-nav-link {
+    /* Améliorez le style pour la réactivité */
+    padding: 0.75rem 1.25rem;
+}
+/* Autres styles existants */
+
+/* Désactiver les ajustements forcés des couleurs */
+body {
+    forced-color-adjust: none;
+}
+
+/* Définir le schéma de couleurs */
+:root {
+    color-scheme: light dark;
+}
+
+/* Styles spécifiques pour le mode de couleurs forcées */
+@media (forced-colors: active) {
+    body {
+        background: Window;
+        color: WindowText;
+    }
+    a {
+        color: LinkText;
+    }
+    /* Autres styles spécifiques */
+}
+
+
+
+
+

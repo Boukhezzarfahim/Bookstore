@@ -6,18 +6,29 @@
   <title>Bookstore</title>
 
   <link href="{{ mix('css/app.css') }}" rel="stylesheet">
+  <link href="{{ asset('css/styles.css') }}" rel="stylesheet">
 
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.pjax/2.0.1/jquery.pjax.min.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
   @livewireStyles
 </head>
 <body class="hold-transition sidebar-mini">
+ 
 <div class="wrapper">
+ 
+  <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+    <ul class="navbar-nav d-flex w-100">
+      <li class="nav-item">
+        <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+      </li>
+      <li class="nav-item ml-auto">
+        <x-topnav />
+      </li>
+    </ul>
+</nav>
 
-  <!-- Navbar -->
-  <x-topnav />
-  <!-- /.navbar -->
+
 
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
@@ -28,7 +39,7 @@
       <!-- Sidebar user panel (optional) -->
       <div class="d-flex justify-content-center p-4">
         <div class="image">
-          <a href="{{ route('home') }}">
+          <a href="{{ route('dashboard') }}">
             <img src="{{ asset('images/books.jpg') }}" alt="User Avatar" class="img-fluid img-circle" style="width: 80px; height: 80px;">
           </a>
         </div>
@@ -39,9 +50,11 @@
       </div>
 
       <hr>
-
+   
       <!-- Sidebar Menu -->
+      
       <x-menu />
+  
       <!-- /.sidebar-menu -->
     </div>
     <!-- /.sidebar -->
@@ -77,20 +90,7 @@
 <!-- ./wrapper -->
 
 <script src="{{ mix('js/app.js') }}"></script>
-<script>
-  $(document).pjax('a[data-pjax]', '#content', {
-    fragment: '#content',
-    timeout: 1000
-  });
-
-  $(document).on('pjax:complete', function() {
-    console.log('PJAX: Content updated');
-    // Réinitialiser Livewire après PJAX
-    if (typeof Livewire !== 'undefined') {
-      Livewire.rescan();
-    }
-  });
-</script>
+<script src="{{ asset('js/js.js') }}"></script>
 @livewireScripts
 </body>
 </html>

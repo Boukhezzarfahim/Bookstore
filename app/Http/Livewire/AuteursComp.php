@@ -29,7 +29,7 @@ class AuteursComp extends Component
             $auteurQuery->where("nom", "LIKE", "%" . $this->search . "%")
                        ->orWhere("prenom", "LIKE", "%" . $this->search . "%");
         }
-        return view('livewire.auteurs.index', [
+        return view('livewire.admin.auteurs.index', [
             "auteurs" => $auteurQuery->latest()->paginate(10)
         ])
         ->extends("layouts.master")

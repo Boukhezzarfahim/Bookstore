@@ -56165,6 +56165,27 @@ a.text-muted:hover {
 .dark-mode .dark-mode.accent-gray-dark .page-item .page-link:hover, .dark-mode .dark-mode.accent-gray-dark .page-item .page-link:focus {
   color: #3f474e;
 }
+/* Autres styles existants */
 
+/* Désactiver les ajustements forcés des couleurs */
+body {
+    forced-color-adjust: none;
+}
 
+/* Définir le schéma de couleurs */
+:root {
+    color-scheme: light dark;
+}
+
+/* Styles spécifiques pour le mode de couleurs forcées */
+@media (forced-colors: active) {
+    body {
+        background: Window;
+        color: WindowText;
+    }
+    a {
+        color: LinkText;
+    }
+    /* Autres styles spécifiques */
+}
 

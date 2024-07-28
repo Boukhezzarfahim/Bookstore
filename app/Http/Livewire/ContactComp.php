@@ -36,7 +36,7 @@ class ContactComp extends Component
     
         $contacts = $contactQuery->latest()->paginate(10);
     
-        return view('livewire.contacts.index', [
+        return view('livewire.admin.contacts.index', [
             "contacts" => $contacts
         ])
         ->extends("layouts.master")

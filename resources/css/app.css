@@ -1,3 +1,26 @@
 @import "~admin-lte/plugins/fontawesome-free/css/all.css";
 @import "~admin-lte/dist/css/adminlte.css";
 
+/* Autres styles existants */
+
+/* Désactiver les ajustements forcés des couleurs */
+body {
+    forced-color-adjust: none;
+}
+
+/* Définir le schéma de couleurs */
+:root {
+    color-scheme: light dark;
+}
+
+/* Styles spécifiques pour le mode de couleurs forcées */
+@media (forced-colors: active) {
+    body {
+        background: Window;
+        color: WindowText;
+    }
+    a {
+        color: LinkText;
+    }
+    /* Autres styles spécifiques */
+}

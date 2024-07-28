@@ -28,7 +28,7 @@ class CategorieComp extends Component
             $this->resetPage();
             $categorieQuery->where("nom", "LIKE", "%" . $this->search . "%");                 
         }
-        return view('livewire.categories.index', [
+        return view('livewire.admin.categories.index', [
             "categories" => $categorieQuery->latest()->paginate(4)
         ])
         ->extends("layouts.master")

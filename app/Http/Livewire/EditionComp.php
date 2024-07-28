@@ -28,7 +28,7 @@ class EditionComp extends Component
             $this->resetPage();
             $editionQuery->where("nom_edition", "LIKE", "%" . $this->search . "%");                 
         }
-        return view('livewire.edition.index', [
+        return view('livewire.admin.edition.index', [
             "editeurs" => $editionQuery->latest()->paginate(10)
         ])
         ->extends("layouts.master")

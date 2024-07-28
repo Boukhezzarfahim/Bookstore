@@ -37,7 +37,7 @@ class GestionCommande extends Component
     
         $commandes = $commandeQuery->latest()->paginate(10);
     
-        return view('livewire.commandes.index', [
+        return view('livewire.admin.commandes.index', [
             "commandes" => $commandes
         ])
         ->extends("layouts.master")
