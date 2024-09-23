@@ -1316,3 +1316,20 @@ footer .container .list a:hover{
   text-decoration: none; /* Enlève le soulignement */
 }
 
+ /* Style pour le bouton Add to Cart */
+ .cartbtn {
+  background-color: #6c5dd4; /* Couleur de fond par défaut */
+  color: white; /* Couleur du texte */
+  border: none; /* Supprimer la bordure */
+  padding: 10px 20px; /* Espacement interne */
+  font-size: 16px; /* Taille de la police */
+  cursor: pointer; /* Curseur en forme de main */
+  transition: background-color 0.3s, transform 0.3s; /* Transition pour la couleur de fond et la transformation */
+}
+
+/* Style pour le bouton Add to Cart au survol */
+.cartbtn:hover {
+  background-color: #5b4e9b; /* Couleur de fond au survol */
+  transform: scale(1.05); /* Agrandir légèrement le bouton */
+}
+

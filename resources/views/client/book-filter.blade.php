@@ -158,3 +158,20 @@
 <button class="back-to-top"><i class="fa-solid fa-chevron-up"></i></button>
 
 @include('layouts.footerClient')
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        @if (session('success_message'))
+            Swal.fire({
+                icon: 'success',
+                title: 'Success!',
+                text: '{{ session('success_message') }}',
+                showConfirmButton: true,
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = "{{ route('client.book-filter') }}"; // Redirige vers book-filter après confirmation
+                }
+            });
+        @endif
+    });
+</script>

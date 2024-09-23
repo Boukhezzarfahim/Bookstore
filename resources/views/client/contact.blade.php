@@ -1,6 +1,6 @@
 @include('layouts.navbarClient')
 @section('title', 'Contact')
-
+ 
 <div class="breadcrumb-container">
   <ul class="breadcrumb">
     <li><a href="{{ route('homeBooks') }}">Home</a></li>

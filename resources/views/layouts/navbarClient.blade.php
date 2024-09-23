@@ -14,6 +14,8 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/Btn.css') }}">
+
     <link href="{{ asset('css/book-filter.css') }}" rel="stylesheet" />
 
     
@@ -35,7 +37,9 @@
     <link rel="icon" type="image/png" sizes="96x96" href="{{ asset('favicon/favicon-96x96.png') }}">
     <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('favicon/favicon-16x16.png') }}">
     <link rel="manifest" href="{{ asset('favicon/manifest.json') }}">
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="{{ asset('favicon/ms-icon-144x144.png') }}">
@@ -69,7 +73,7 @@
             <i class="fa-regular fa-heart"></i> <span>35</span>
           </button> --}}
           <button class="cart">
-            <a href="cart-item.html"><i class="fa-solid fa-cart-shopping"></i> <span>4</span></a>
+            <a href="{{ route('client.cart-item') }}"><i class="fa-solid fa-cart-shopping"></i> <span>{{ $cartCount ?? 0 }}</span></a>
           </button>
        
         </div>

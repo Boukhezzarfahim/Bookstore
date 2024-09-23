@@ -17,9 +17,12 @@ class CreateCommandesTable extends Migration
             $table->bigIncrements('id');
             $table->string('nom');
             $table->string('prenom');
-            $table->string('adresse');
+            $table->string('message');
             $table->string('telephone');
             $table->string('email');
+            $table->string('wilaya');
+            $table->string('ville');
+            $table->string('code-postale');
             $table->date('date_commande');  // Added date_commande
             $table->decimal('montant_total', 10, 2);
             $table->string('statut');

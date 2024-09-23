@@ -18,20 +18,7 @@ class LigneCommande extends Model
         'prix_unitaire',
     ];
 
-    // public static function boot()
-    // {
-    //     parent::boot();
-
-    //     static::saved(function ($ligne) {
-    //         $commande = $ligne->commande;
-    //         $commande->updateMontantTotal();
-    //     });
-
-    //     static::deleted(function ($ligne) {
-    //         $commande = $ligne->commande;
-    //         $commande->updateMontantTotal();
-    //     });
-    // }
+ 
 
     public function commande()
     {

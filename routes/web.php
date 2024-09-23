@@ -29,8 +29,18 @@ Route::get('/livre/{id}', [boutique::class, 'bookDetail'])->name('client.book-de
 Route::get('/service', [boutique::class, 'service'])->name('service');
 Route::get('/contact', [boutique::class, 'contact'])->name('client.contact');
 Route::post('/contact', [boutique::class, 'contactStore'])->name('contact.submit');
-
 Route::get('/book-filter', [boutique::class, 'bookFilter'])->name('client.book-filter');
+Route::post('/add-to-cart/{id}', [boutique::class, 'addToCart'])->name('add.to.cart');
+Route::post('/remove-from-cart/{id}',  [boutique::class,'removeFromCart'])->name('remove.from.cart');
+Route::get('/cart-items', [boutique::class, 'showCart'])->name('client.cart-item');
+Route::post('/update-cart/{id}', [boutique::class, 'updateCart'])->name('update.cart');
+Route::get('/checkout', [boutique::class, 'checkout'])->name('client.checkout');
+Route::post('/checkout', [boutique::class, 'processCheckout'])->name('checkout.process');
+
+
+
+
+
 
 
 Auth::routes(['register' => false]);

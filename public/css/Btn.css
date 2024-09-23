@@ -1,0 +1,62 @@
+ .cartbtn {
+    background-color: #6c5dd4; /* Couleur de fond par défaut */
+    color: white; /* Couleur du texte */
+    border: none; /* Supprimer la bordure */
+    padding: 10px 20px; /* Espacement interne */
+    font-size: 16px; /* Taille de la police */
+    cursor: pointer; /* Curseur en forme de main */
+    transition: background-color 0.3s, transform 0.3s; /* Transition pour la couleur de fond et la transformation */
+  }
+  
+  /* Style pour le bouton Add to Cart au survol */
+  .cartbtn:hover {
+    background-color: #5b4e9b; /* Couleur de fond au survol */
+    transform: scale(1.05); /* Agrandir légèrement le bouton */
+  }
+
+  .checkout-section {
+    display: flex;
+    flex-direction: column;
+}
+
+.main {
+    display: flex;
+    justify-content: space-between;
+}
+
+.checkout-form {
+    flex: 1;
+}
+
+.your-order {
+    flex: 1;
+}
+
+.detail-payment {
+    flex: 1;
+    margin-top: 20px;
+    position: relative;
+}
+
+.submit-button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-top: 20px;
+    background-color: #6c5dd4;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.submit-button:hover {
+    background-color: #5a4bb3;
+}
+
+/* Ensure the button does not overlap other content */
+.detail-payment {
+    padding-bottom: 60px; /* Adjust this value if necessary */
+}

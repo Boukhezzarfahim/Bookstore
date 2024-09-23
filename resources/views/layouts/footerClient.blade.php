@@ -68,17 +68,7 @@
       </div>
     </div>
   </footer>
-  <script src="{{ asset('js/app.js') }}"></script>
-<!-- Custom JavaScript -->
-<script src="/js/back-to-top.js"></script>
-<script src="/js/cart-item-count.js"></script>
-<script src="/js/navbar-fixed.js"></script>
-<script src="/js/add-to-cart.js"></script>
-<script src="/js/script.js"></script>
-<script src="/js/repeat-js.js"></script>
-<script src="/js/book-filter.js"></script>
-<script src="/js/increment-decrement.js"></script>
-<script src="/js/jquery.counterup.min.js"></script>
+
 
 
 
@@ -97,19 +87,20 @@
 ></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-<script type="text/javascript">
- $(document).ready(function(){
-   $('.slider').slick({
-     dots: true,
-     infinite: true,
-     speed: 500,
-     slidesToShow: 1,
-     slidesToScroll: 1,
-     autoplay: true,
-     autoplaySpeed: 2000,
-   });
- });
-</script>  
+
+
+<script src="js/back-to-top.js"></script>
+<script src="js/book-filter.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Counter-Up/1.0.0/jquery.counterup.min.js"></script>
+<script src="js/scripts.js"></script>
+<script src="js/repeat-js.js"></script>
+<script src="js/add-to-cart.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.3.js"></script> 
+<script src="{{ asset('js/app.js') }}"></script>
+
 </body>
 </html>
 
