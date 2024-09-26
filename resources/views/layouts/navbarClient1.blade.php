@@ -16,6 +16,9 @@
 
   <!-- Custom CSS -->
   <link href="{{ asset('css/style.css') }}" rel="stylesheet" />
+  <link rel="stylesheet" href="{{ asset('css/Btn.css') }}">
+  
+
 
   <!-- Favicon -->
   <link rel="apple-touch-icon" sizes="57x57" href="{{ asset('favicon/apple-icon-57x57.png') }}">
@@ -34,6 +37,8 @@
   <link rel="manifest" href="{{ asset('favicon/manifest.json') }}">
   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+  <link rel="manifest" href="{{ asset('favicon/manifest.json') }}">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
 </head>
   <meta name="msapplication-TileColor" content="#ffffff">
   <meta name="msapplication-TileImage" content="{{ asset('favicon/ms-icon-144x144.png') }}">
@@ -91,10 +96,10 @@
           </div>
           <button class="close"><i class="fa-solid fa-xmark"></i></button>
         </div>
-        <li><a href="{{ route('homeBooks') }}">Home</a></li>
+        <li><a href="{{ route('homeBooks') }}">Acceuil</a></li>
         <li><a href="{{ route('service') }}">Service</a></li>
         <li><a href="{{ route('client.contact') }}">Contact</a></li>
-        <li><a href="{{ route('client.book-filter') }}">Books</a></li>
+        <li><a href="{{ route('client.book-filter') }}">Livres</a></li>
         <button class="login"><a href="{{ route('login') }}">Log In</a></button>
       
         {{-- <button class="signup">

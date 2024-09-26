@@ -11,10 +11,10 @@
           </div>
         </div>
         <div class="logo-body">
-          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magnam voluptates eius quasi reiciendis recusandae provident veritatis sequi, dolores architecto dolor possimus quos</p>
+          <p>Bienvenue dans notre univers littéraire ! Découvrez une sélection de livres soigneusement choisis, des classiques intemporels aux nouveautés captivantes. Que vous soyez passionné de fiction ou en quête d'inspiration, chaque page est une nouvelle aventure. Trouvez votre prochaine lecture coup de cœur dès maintenant !</p>
         </div>
         <div class="social-links">
-          <h4>Follow Us</h4>
+          <h4>Abonnez à nos pages</h4>
           <ul class="links">
             <li><a href="#"><i class="fa-brands fa-facebook-f"></i></a></li>
             <li><a href="#"><i class="fa-brands fa-youtube"></i></a></li>
@@ -24,7 +24,7 @@
           </ul>
         </div>
       </div>
-      <div class="categories list">
+      <!-- <div class="categories list">
         <h4>Book Categories</h4>
         <ul>
           <li><a href="#">Action</a></li>
@@ -35,24 +35,24 @@
           <li><a href="#">Fantasy</a></li>
           <li><a href="#">Horror</a></li>
         </ul>
-      </div>
+      </div> -->
       <div class="quick-links list">
-        <h4>Quick Links</h4>
+        <h4>Liens rpaide</h4>
         <ul>
-          <li><a href="#">About Us</a></li>
-          <li><a href="#">Contact Us</a></li>
-          <li><a href="#">Products</a></li>
-          <li><a href="#">Login</a></li>
-          <li><a href="#">Sign Up</a></li>
-          <li><a href="#">Cart</a></li>
-          <li><a href="#">Checkout</a></li>
+          <li><a href="#">A propos</a></li>
+          <li><a href="{{ route('client.contact') }}">Contactez nous</a></li>
+          <li><a href="{{ route('client.book-filter') }}">Produits</a></li>
+          <li><a href="{{ route('login') }}">Login</a></li>
+          <!-- <li><a href="#">Sign Up</a></li> -->
+          <li><a href="{{ route('client.cart-item') }}">Panier</a></li>
+          <li><a href="{{ route('client.checkout') }}">Paiement</a></li>
         </ul>
       </div>
       <div class="our-store list">
-        <h4>Our Store</h4>
+        <h4>Notre magasin</h4>
         <div class="map" style="margin-top: 1rem">
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6310.594819201665!2d-122.42768319999999!3d37.73616639999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808f7e60a337d5f5%3A0xfa0bb626904e5ab2!2z4KSV4KWJ4KSy4KWH4KScIOCkueCkv-Cksiwg4KS44KS-4KSoIOCkq-CljeCksOCkvuCkguCkuOCkv-CkuOCljeCkleCliywg4KSV4KWI4KSy4KWA4KSr4KWL4KSw4KWN4KSo4KS_4KSv4KS-LCDgpK_gpYLgpKjgpL7gpIfgpJ_gpYfgpKEg4KS44KWN4KSf4KWH4KSf4KWN4oCN4KS4!5e0!3m2!1shi!2sin!4v1686917463994!5m2!1shi!2sin"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3198.6028586857915!2d2.9175377750175686!3d36.70808017288828!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x128fa50f6375a613%3A0x7d68f1c310497baa!2sCit%C3%A9%20768%20Logements%20Souidania!5e0!3m2!1sfr!2sdz!4v1727376204783!5m2!1sfr!2sdz"
             height="70"
             style="width: 100%; border: none; border-radius: 5px"
             allowfullscreen=""
@@ -61,9 +61,9 @@
           ></iframe>
         </div>
         <ul>
-          <li><a href="#"><i class="fa-solid fa-location-dot"></i>832 Thompson Drive,San Fransisco CA 94 107,United States</a></li>
-          <li><a href="#"><i class="fa-solid fa-phone"></i>+12 1345678991</a></li>
-          <li><a href="#"><i class="fa-solid fa-envelope"></i>support@bookoe.id</a></li>
+          <li><a href="#"><i class="fa-solid fa-location-dot"></i>Cité 768 Logements Souidania</a></li>
+          <li><a href="#"><i class="fa-solid fa-phone"></i>+213 556 31 44 34</a></li>
+          <li><a href="#"><i class="fa-solid fa-envelope"></i>KbBooks@books.dz</a></li>
         </ul>
       </div>
     </div>

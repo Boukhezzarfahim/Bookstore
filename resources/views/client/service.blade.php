@@ -1,12 +1,7 @@
-@include('layouts.navbarClient')
+@include('layouts.navbarClient1')
 @section('title', 'service')
 
-      <div class="breadcrumb-container">
-        <ul class="breadcrumb">
-          <li><a href="{{ route('homeBooks') }}">Home</a></li>
-          <li><a href="#">Service</a></li>
-        </ul>
-      </div>
+      
       <div class="service-title">
           <h3>Service</h3>
       </div>
